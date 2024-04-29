@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSheduledocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_id}"/>
+                    <h:outputText value="#{sheduledocController.selected.id}" title="#{bundle.ViewSheduledocTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_day}"/>
+                    <h:outputText value="#{sheduledocController.selected.day}" title="#{bundle.ViewSheduledocTitle_day}"/>
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_name}"/>
+                    <h:outputText value="#{sheduledocController.selected.name}" title="#{bundle.ViewSheduledocTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_location}"/>
+                    <h:outputText value="#{sheduledocController.selected.location}" title="#{bundle.ViewSheduledocTitle_location}"/>
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_time}"/>
+                    <h:outputText value="#{sheduledocController.selected.time}" title="#{bundle.ViewSheduledocTitle_time}"/>
+                    <h:outputText value="#{bundle.ViewSheduledocLabel_patients}"/>
+                    <h:outputText value="#{sheduledocController.selected.patients}" title="#{bundle.ViewSheduledocTitle_patients}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sheduledocController.destroyAndView}" value="#{bundle.ViewSheduledocDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSheduledocEditLink}"/>
+                <br />
+                <h:commandLink action="#{sheduledocController.prepareCreate}" value="#{bundle.ViewSheduledocCreateLink}" />
+                <br />
+                <h:commandLink action="#{sheduledocController.prepareList}" value="#{bundle.ViewSheduledocShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSheduledocIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSheduledocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{sheduledocController.selected.id}" title="#{bundle.CreateSheduledocTitle_id}" required="true" requiredMessage="#{bundle.CreateSheduledocRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_day}" for="day" />
+                    <h:inputText id="day" value="#{sheduledocController.selected.day}" title="#{bundle.CreateSheduledocTitle_day}" />
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{sheduledocController.selected.name}" title="#{bundle.CreateSheduledocTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_location}" for="location" />
+                    <h:inputText id="location" value="#{sheduledocController.selected.location}" title="#{bundle.CreateSheduledocTitle_location}" />
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_time}" for="time" />
+                    <h:inputText id="time" value="#{sheduledocController.selected.time}" title="#{bundle.CreateSheduledocTitle_time}" />
+                    <h:outputLabel value="#{bundle.CreateSheduledocLabel_patients}" for="patients" />
+                    <h:inputText id="patients" value="#{sheduledocController.selected.patients}" title="#{bundle.CreateSheduledocTitle_patients}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sheduledocController.create}" value="#{bundle.CreateSheduledocSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{sheduledocController.prepareList}" value="#{bundle.CreateSheduledocShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSheduledocIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
